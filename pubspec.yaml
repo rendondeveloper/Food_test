@@ -1,0 +1,50 @@
+name: food_test
+description: "Project using themealdb.com api to show distinct dishes with food delicious"
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.0
+
+  widgets_ui:
+    git:
+      url: https://github.com/rendondeveloper/WidgetsUi.git
+      ref: main
+  util_commons:
+    git:
+      url: https://github.com/rendondeveloper/util_commons.git
+      ref: main
+  cupertino_icons: ^1.0.2  
+  freezed_annotation: ^2.4.1
+  flutter_native_splash: ^2.2.6
+  go_router: ^13.2.0
+
+  #Storage
+  shared_preferences: ^2.2.3
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.8
+  freezed: ^2.4.7
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+
+assets:
+  - assets/image/
+  - assets/config/
