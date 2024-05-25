@@ -768,7 +768,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "283a0096077630bff080b418e8a05d28f1f3d294"
+      resolved-ref: "3c9b4d595b3d3d0c756b500b6e4bb8046a2e88e9"
       url: "https://github.com/rendondeveloper/WidgetsUi.git"
     source: git
     version: "1.0.0+1"
