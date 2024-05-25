@@ -26,7 +26,7 @@ final themeApp = ThemeData(
           textStyle: MaterialStateProperty.resolveWith<TextStyle>(
               (states) => const TextStyle(color: text)),
           backgroundColor:
-              MaterialStateProperty.resolveWith((states) => dividerColor))),
+              MaterialStateProperty.resolveWith((states) => background))),
   cardTheme: CardTheme(
     surfaceTintColor: cardColor,
     color: cardColor,
