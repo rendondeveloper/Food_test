@@ -120,7 +120,9 @@ class _HomePageState extends State<HomePage> {
                           return CardFood(
                             callback: () {
                               context.push("$pathInitial$detailPage", extra: {
-                                "identifier": state.items![index].identifier
+                                identifierTransport:
+                                    state.items![index].identifier,
+                                imageUrlTransport: state.items![index].imageUrl
                               });
                             },
                             item: state.items![index],

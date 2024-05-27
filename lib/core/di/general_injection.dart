@@ -31,7 +31,10 @@ class GeneralInjection {
                 name: detailPage,
                 path: "$pathInitial$detailPage",
                 builder: (BuildContext context, GoRouterState state) {
-                  return const DetailPage();
+                  final extra = state.extra as Map<String?, String?>;
+                  final identifier = extra[identifierTransport] ?? "";
+                  final imageUrl = extra[imageUrlTransport] ?? "";
+                  return DetailPage(identifier: identifier, imageUrl: imageUrl);
                 }),
           ],
         );

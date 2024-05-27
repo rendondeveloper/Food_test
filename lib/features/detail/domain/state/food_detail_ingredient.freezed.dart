@@ -16,8 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FoodDetailIngredient {
-  int? get identifier => throw _privateConstructorUsedError;
-  int? get order => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
 
@@ -32,7 +30,7 @@ abstract class $FoodDetailIngredientCopyWith<$Res> {
           $Res Function(FoodDetailIngredient) then) =
       _$FoodDetailIngredientCopyWithImpl<$Res, FoodDetailIngredient>;
   @useResult
-  $Res call({int? identifier, int? order, String? name, String? imageUrl});
+  $Res call({String? name, String? imageUrl});
 }
 
 /// @nodoc
@@ -49,20 +47,10 @@ class _$FoodDetailIngredientCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? identifier = freezed,
-    Object? order = freezed,
     Object? name = freezed,
     Object? imageUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      identifier: freezed == identifier
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as int?,
-      order: freezed == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -83,7 +71,7 @@ abstract class _$$FoodDetailIngredientImplCopyWith<$Res>
       __$$FoodDetailIngredientImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? identifier, int? order, String? name, String? imageUrl});
+  $Res call({String? name, String? imageUrl});
 }
 
 /// @nodoc
@@ -97,20 +85,10 @@ class __$$FoodDetailIngredientImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? identifier = freezed,
-    Object? order = freezed,
     Object? name = freezed,
     Object? imageUrl = freezed,
   }) {
     return _then(_$FoodDetailIngredientImpl(
-      identifier: freezed == identifier
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as int?,
-      order: freezed == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -126,19 +104,9 @@ class __$$FoodDetailIngredientImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FoodDetailIngredientImpl extends _FoodDetailIngredient {
-  const _$FoodDetailIngredientImpl(
-      {this.identifier = null,
-      this.order = null,
-      this.name = null,
-      this.imageUrl = null})
+  const _$FoodDetailIngredientImpl({this.name = null, this.imageUrl = null})
       : super._();
 
-  @override
-  @JsonKey()
-  final int? identifier;
-  @override
-  @JsonKey()
-  final int? order;
   @override
   @JsonKey()
   final String? name;
@@ -148,7 +116,7 @@ class _$FoodDetailIngredientImpl extends _FoodDetailIngredient {
 
   @override
   String toString() {
-    return 'FoodDetailIngredient(identifier: $identifier, order: $order, name: $name, imageUrl: $imageUrl)';
+    return 'FoodDetailIngredient(name: $name, imageUrl: $imageUrl)';
   }
 
   @override
@@ -156,17 +124,13 @@ class _$FoodDetailIngredientImpl extends _FoodDetailIngredient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FoodDetailIngredientImpl &&
-            (identical(other.identifier, identifier) ||
-                other.identifier == identifier) &&
-            (identical(other.order, order) || other.order == order) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, identifier, order, name, imageUrl);
+  int get hashCode => Object.hash(runtimeType, name, imageUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -179,16 +143,10 @@ class _$FoodDetailIngredientImpl extends _FoodDetailIngredient {
 
 abstract class _FoodDetailIngredient extends FoodDetailIngredient {
   const factory _FoodDetailIngredient(
-      {final int? identifier,
-      final int? order,
-      final String? name,
+      {final String? name,
       final String? imageUrl}) = _$FoodDetailIngredientImpl;
   const _FoodDetailIngredient._() : super._();
 
-  @override
-  int? get identifier;
-  @override
-  int? get order;
   @override
   String? get name;
   @override

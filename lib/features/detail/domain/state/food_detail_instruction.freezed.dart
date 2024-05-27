@@ -16,8 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FoodDetailInstruction {
-  int? get identifier => throw _privateConstructorUsedError;
-  String? get order => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +29,7 @@ abstract class $FoodDetailInstructionCopyWith<$Res> {
           $Res Function(FoodDetailInstruction) then) =
       _$FoodDetailInstructionCopyWithImpl<$Res, FoodDetailInstruction>;
   @useResult
-  $Res call({int? identifier, String? order, String? description});
+  $Res call({String? description});
 }
 
 /// @nodoc
@@ -48,19 +46,9 @@ class _$FoodDetailInstructionCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? identifier = freezed,
-    Object? order = freezed,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
-      identifier: freezed == identifier
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as int?,
-      order: freezed == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -78,7 +66,7 @@ abstract class _$$FoodDetailInstructionImplCopyWith<$Res>
       __$$FoodDetailInstructionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? identifier, String? order, String? description});
+  $Res call({String? description});
 }
 
 /// @nodoc
@@ -93,19 +81,9 @@ class __$$FoodDetailInstructionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? identifier = freezed,
-    Object? order = freezed,
     Object? description = freezed,
   }) {
     return _then(_$FoodDetailInstructionImpl(
-      identifier: freezed == identifier
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as int?,
-      order: freezed == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -117,23 +95,15 @@ class __$$FoodDetailInstructionImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FoodDetailInstructionImpl extends _FoodDetailInstruction {
-  const _$FoodDetailInstructionImpl(
-      {this.identifier = null, this.order = null, this.description = null})
-      : super._();
+  const _$FoodDetailInstructionImpl({this.description = null}) : super._();
 
-  @override
-  @JsonKey()
-  final int? identifier;
-  @override
-  @JsonKey()
-  final String? order;
   @override
   @JsonKey()
   final String? description;
 
   @override
   String toString() {
-    return 'FoodDetailInstruction(identifier: $identifier, order: $order, description: $description)';
+    return 'FoodDetailInstruction(description: $description)';
   }
 
   @override
@@ -141,15 +111,12 @@ class _$FoodDetailInstructionImpl extends _FoodDetailInstruction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FoodDetailInstructionImpl &&
-            (identical(other.identifier, identifier) ||
-                other.identifier == identifier) &&
-            (identical(other.order, order) || other.order == order) &&
             (identical(other.description, description) ||
                 other.description == description));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, identifier, order, description);
+  int get hashCode => Object.hash(runtimeType, description);
 
   @JsonKey(ignore: true)
   @override
@@ -160,16 +127,10 @@ class _$FoodDetailInstructionImpl extends _FoodDetailInstruction {
 }
 
 abstract class _FoodDetailInstruction extends FoodDetailInstruction {
-  const factory _FoodDetailInstruction(
-      {final int? identifier,
-      final String? order,
-      final String? description}) = _$FoodDetailInstructionImpl;
+  const factory _FoodDetailInstruction({final String? description}) =
+      _$FoodDetailInstructionImpl;
   const _FoodDetailInstruction._() : super._();
 
-  @override
-  int? get identifier;
-  @override
-  String? get order;
   @override
   String? get description;
   @override

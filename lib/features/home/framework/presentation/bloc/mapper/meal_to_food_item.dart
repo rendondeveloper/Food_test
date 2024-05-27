@@ -17,8 +17,8 @@ class MealToFoodItem implements Mapper<Meal, FoodItem> {
       identifier: input.idMeal,
       name: input.strMeal,
       imageUrl: input.strMealThumb,
-      countryFlagUrl: flag != null ?
-          "$baseImageCountry$flag$baseImageCountryExtencion" : null,
+      countryFlagUrl:
+          flag != null ? "$baseImageCountry$flag$baseImageExtencion" : null,
     );
   }
 }

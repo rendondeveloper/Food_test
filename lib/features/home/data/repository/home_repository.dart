@@ -15,7 +15,6 @@ class HomeRepository {
       throw result.error!;
     }
 
-    
     /*if (result.success != null) {
       await _remoteDataSource.getHomeData();
     }*/
