@@ -6,7 +6,7 @@ import 'package:food_test/core/const/theme_app.dart';
 import 'package:food_test/core/di/general_injection.dart';
 import 'package:food_test/features/home/framework/di/home_injection.dart';
 import 'package:food_test/features/home/framework/presentation/bloc/home_bloc.dart';
-import 'package:food_test/features/home/framework/presentation/page/home_page.dart';
+import 'package:go_router/go_router.dart';
 import 'package:injector/injector.dart';
 
 void main() {
@@ -20,7 +20,7 @@ void main() {
       ),
     ],
     child: SafeArea(
-      child: MaterialApp(
+      child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
           localizationsDelegates: const [
             AppLocalizations.delegate,
@@ -34,7 +34,7 @@ void main() {
           ],
           theme: themeApp,
           themeMode: ThemeMode.light,
-          home: const HomePage()),
+          routerConfig: Injector.appInstance.get<GoRouter>()),
     ),
   ));
 }

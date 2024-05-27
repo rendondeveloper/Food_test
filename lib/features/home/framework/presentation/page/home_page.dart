@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_test/core/const/configuration_navigation_paths.dart';
 import 'package:food_test/core/extension/extension_context.dart';
 import 'package:food_test/features/home/domain/state/home_process.dart';
 import 'package:food_test/features/home/framework/presentation/bloc/home_bloc.dart';
 import 'package:food_test/features/home/framework/presentation/widgets/card_food.dart';
 import 'package:food_test/features/search_food/framework/presentation/page/search_food.dart';
+import 'package:go_router/go_router.dart';
 import 'package:util_commons/utils/commons/dimens_app.dart';
 import 'package:util_commons/utils/extensions/extension_context.dart';
 import 'package:widgets_ui/widget/empty/empty_state_action_widget.dart';
@@ -116,7 +118,11 @@ class _HomePageState extends State<HomePage> {
                         itemCount: state.items?.length ?? 0,
                         itemBuilder: (context, index) {
                           return CardFood(
-                            callback: () {},
+                            callback: () {
+                              context.push("$pathInitial$detailPage", extra: {
+                                "identifier": state.items![index].identifier
+                              });
+                            },
                             item: state.items![index],
                           );
                         },

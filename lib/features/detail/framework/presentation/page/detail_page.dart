@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:util_commons/utils/commons/dimens_app.dart';
 import 'package:util_commons/utils/extensions/extension_context.dart';
 import 'package:widgets_ui/widget/image/image_network_widget.dart';
@@ -19,7 +20,7 @@ class DetailPage extends StatelessWidget {
               color: context.getThemeData.colorScheme.onPrimary,
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
-                Navigator.pop(context);
+                context.pop();
               },
             ),
             flexibleSpace: FlexibleSpaceBar(
