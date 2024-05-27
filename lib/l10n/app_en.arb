@@ -1,4 +1,8 @@
 {
   "app_name":"Food Test",
-  "home_page_toolbar_title":"Welcome"
+  "home_page_toolbar_title":"Welcome",
+  "home_page_empty_state":"It was not found dishes to show.",
+  "home_page_empty_state_action":"Reload",
+  "home_page_error_state":"It has happened an error, try again.",
+  "home_page_error_state_action":"Search dishes"
 }

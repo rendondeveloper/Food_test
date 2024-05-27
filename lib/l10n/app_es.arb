@@ -1,4 +1,8 @@
 {
   "app_name":"Food Test",
-  "home_page_toolbar_title":"Benvenid@"
+  "home_page_toolbar_title":"Benvenid@",
+  "home_page_empty_state":"No se encontraron platillos que mostrar.",
+  "home_page_empty_state_action":"Recargar",
+  "home_page_error_state":"Ocurrio un error inesperado, intentalo nuevamente.",
+  "home_page_error_state_action":"Buscar platillos"
 }

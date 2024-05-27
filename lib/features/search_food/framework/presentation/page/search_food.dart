@@ -45,7 +45,7 @@ class SearchFood extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final List<String> suggestions = []; 
+    final List<String> suggestions = [];
 
     return ListView.builder(
       itemCount: suggestions.length,

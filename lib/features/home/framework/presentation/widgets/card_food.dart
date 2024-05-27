@@ -37,18 +37,19 @@ class CardFood extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(simpleSeparation),
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(radiusMedium),
-                  ),
-                  child: Image.network(
-                    item.countryFlagUrl!,
-                    fit: BoxFit.cover,
+              if (item.countryFlagUrl != null)
+                Padding(
+                  padding: const EdgeInsets.all(simpleSeparation),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(radiusMedium),
+                    ),
+                    child: Image.network(
+                      item.countryFlagUrl!,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
           Padding(

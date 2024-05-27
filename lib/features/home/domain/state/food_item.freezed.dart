@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FoodItem {
-  int? get identifier => throw _privateConstructorUsedError;
+  String? get identifier => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   String? get countryFlagUrl => throw _privateConstructorUsedError;
@@ -32,7 +32,7 @@ abstract class $FoodItemCopyWith<$Res> {
       _$FoodItemCopyWithImpl<$Res, FoodItem>;
   @useResult
   $Res call(
-      {int? identifier,
+      {String? identifier,
       String? name,
       String? imageUrl,
       String? countryFlagUrl});
@@ -60,7 +60,7 @@ class _$FoodItemCopyWithImpl<$Res, $Val extends FoodItem>
       identifier: freezed == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -86,7 +86,7 @@ abstract class _$$FoodItemImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? identifier,
+      {String? identifier,
       String? name,
       String? imageUrl,
       String? countryFlagUrl});
@@ -112,7 +112,7 @@ class __$$FoodItemImplCopyWithImpl<$Res>
       identifier: freezed == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -141,7 +141,7 @@ class _$FoodItemImpl extends _FoodItem {
 
   @override
   @JsonKey()
-  final int? identifier;
+  final String? identifier;
   @override
   @JsonKey()
   final String? name;
@@ -184,14 +184,14 @@ class _$FoodItemImpl extends _FoodItem {
 
 abstract class _FoodItem extends FoodItem {
   const factory _FoodItem(
-      {final int? identifier,
+      {final String? identifier,
       final String? name,
       final String? imageUrl,
       final String? countryFlagUrl}) = _$FoodItemImpl;
   const _FoodItem._() : super._();
 
   @override
-  int? get identifier;
+  String? get identifier;
   @override
   String? get name;
   @override
