@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:food_test/core/const/theme_app.dart';
 import 'package:food_test/core/di/general_injection.dart';
+import 'package:food_test/core/feature/favoritie/data/config/favorite.dart';
 import 'package:food_test/core/feature/favoritie/framework/di/favorite_injection.dart';
 import 'package:food_test/features/detail/framework/di/detail_injection.dart';
 import 'package:food_test/features/detail/framework/presentation/bloc/detail_bloc.dart';
@@ -13,9 +14,13 @@ import 'package:food_test/features/search_food/framework/bloc/search_bloc.dart';
 import 'package:food_test/features/search_food/framework/di/search_injection.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injector/injector.dart';
+import 'package:isar/isar.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
-  GeneralInjection().register();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  GeneralInjection().register(await initIsar());
   HomeInjection().register();
   DetailInjection().register();
   SearchInjection().register();
@@ -33,7 +38,7 @@ void main() {
       BlocProvider<SearchBloc>(
         create: (BuildContext context) =>
             Injector.appInstance.get<SearchBloc>(),
-      ),   
+      ),
     ],
     child: SafeArea(
       child: MaterialApp.router(
@@ -53,4 +58,12 @@ void main() {
           routerConfig: Injector.appInstance.get<GoRouter>()),
     ),
   ));
+}
+
+Future<Isar> initIsar() async {
+  final dir = await getApplicationDocumentsDirectory();
+  return await Isar.open(
+    [FavoriteSchema],
+    directory: dir.path,
+  );
 }

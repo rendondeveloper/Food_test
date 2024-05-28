@@ -4,12 +4,13 @@ import 'package:food_test/core/feature/favoritie/domain/use_cases/delete_favorit
 import 'package:food_test/core/feature/favoritie/domain/use_cases/get_by_Identifier_favorities_use_case.dart';
 import 'package:food_test/core/feature/favoritie/domain/use_cases/put_favorities_use_case.dart';
 import 'package:injector/injector.dart';
+import 'package:isar/isar.dart';
 
 class FavoriteInjection {
   void register() {
     final injector = Injector.appInstance;
     Injector.appInstance
-      ..registerDependency(() => FavoriteDataSource())
+      ..registerDependency(() => FavoriteDataSource(injector.get<Isar>()))
       ..registerDependency(
           () => FavoriteRepository(injector.get<FavoriteDataSource>()))
       ..registerDependency(
