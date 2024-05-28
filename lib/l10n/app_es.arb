@@ -6,5 +6,6 @@
   "home_page_error_state":"Ocurrio un error inesperado, intentalo nuevamente.",
   "home_page_error_state_action":"Buscar platillos",
   "detail_page_error_state": "Ocurrio un error inesperado al consultar el detalle del platillo, intentalo nuevamente.",
-  "detail_page_error_state_action":"Cargar detalle del platillo"
+  "detail_page_error_state_action":"Cargar detalle del platillo",
+  "search_page_empty_state":"Aún no encontramos reusltados para tus busquedas."
 }

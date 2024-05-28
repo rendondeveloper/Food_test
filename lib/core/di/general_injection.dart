@@ -26,16 +26,19 @@ class GeneralInjection {
                 path: pathInitial,
                 builder: (BuildContext context, GoRouterState state) {
                   return const HomePage();
-                }),
-            GoRoute(
-                name: detailPage,
-                path: "$pathInitial$detailPage",
-                builder: (BuildContext context, GoRouterState state) {
-                  final extra = state.extra as Map<String?, String?>;
-                  final identifier = extra[identifierTransport] ?? "";
-                  final imageUrl = extra[imageUrlTransport] ?? "";
-                  return DetailPage(identifier: identifier, imageUrl: imageUrl);
-                }),
+                },
+                routes: [
+                  GoRoute(
+                      name: detailPage,
+                      path: detailPage,
+                      builder: (BuildContext context, GoRouterState state) {
+                        final extra = state.extra as Map<String?, String?>;
+                        final identifier = extra[identifierTransport] ?? "";
+                        final imageUrl = extra[imageUrlTransport] ?? "";
+                        return DetailPage(
+                            identifier: identifier, imageUrl: imageUrl);
+                      }),
+                ]),
           ],
         );
       });

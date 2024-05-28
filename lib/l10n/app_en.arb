@@ -6,5 +6,6 @@
   "home_page_error_state":"It has happened an error, try again.",
   "home_page_error_state_action":"Search dishes",
   "detail_page_error_state": "It has happened an error to request dish information, try again.",
-  "detail_page_error_state_action":"Load dish detail"
+  "detail_page_error_state_action":"Load dish detail",
+  "search_page_empty_state":"We still haven't found result for your searching."
 }

@@ -8,6 +8,8 @@ import 'package:food_test/features/detail/framework/di/detail_injection.dart';
 import 'package:food_test/features/detail/framework/presentation/bloc/detail_bloc.dart';
 import 'package:food_test/features/home/framework/di/home_injection.dart';
 import 'package:food_test/features/home/framework/presentation/bloc/home_bloc.dart';
+import 'package:food_test/features/search_food/framework/bloc/search_bloc.dart';
+import 'package:food_test/features/search_food/framework/di/search_injection.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injector/injector.dart';
 
@@ -15,6 +17,7 @@ void main() {
   GeneralInjection().register();
   HomeInjection().register();
   DetailInjection().register();
+  SearchInjection().register();
 
   runApp(MultiBlocProvider(
     providers: [
@@ -24,6 +27,10 @@ void main() {
       BlocProvider<DetailBloc>(
         create: (BuildContext context) =>
             Injector.appInstance.get<DetailBloc>(),
+      ),
+      BlocProvider<SearchBloc>(
+        create: (BuildContext context) =>
+            Injector.appInstance.get<SearchBloc>(),
       ),
     ],
     child: SafeArea(

@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_test/core/const/configuration_navigation_paths.dart';
+import 'package:food_test/core/extension/extension_context.dart';
+import 'package:food_test/features/search_food/domain/state/search_status.dart';
+import 'package:food_test/features/search_food/framework/bloc/search_bloc.dart';
+import 'package:food_test/features/search_food/framework/presentation/widgets/card_search.dart';
+import 'package:go_router/go_router.dart';
+import 'package:util_commons/utils/extensions/extension_context.dart';
+import 'package:widgets_ui/widget/empty/empty_state_simple_widget.dart';
 
 class SearchFood extends SearchDelegate<String> {
   @override
@@ -28,15 +37,15 @@ class SearchFood extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    final List<String> results = [];
+    final state = context.watch<SearchBloc>();
 
     return ListView.builder(
-      itemCount: results.length,
+      itemCount: state.state.results?.length ?? 0,
       itemBuilder: (context, index) {
         return ListTile(
-          title: Text(results[index]),
+          title: Text("${state.state.results![index].name} tres"),
           onTap: () {
-            close(context, results[index]);
+            close(context, "${state.state.results![index].name} tres");
           },
         );
       },
@@ -45,19 +54,47 @@ class SearchFood extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final List<String> suggestions = [];
+    if (query.isNotEmpty) {
+      _searchFood(context, query);
+    }
 
-    return ListView.builder(
-      itemCount: suggestions.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(suggestions[index]),
-          onTap: () {
-            query = suggestions[index];
-            showResults(context);
-          },
+    return BlocBuilder<SearchBloc, SearchState>(
+      builder: (context, state) {
+        if (state.status == SearchStatus.loading()) {
+          return const Center(child: CircularProgressIndicator.adaptive());
+        }
+
+        if (state.status == SearchStatus.success()) {
+          return ListView.builder(
+            itemCount: state.results?.length ?? 0,
+            itemBuilder: (context, index) {
+              return CardSearch(
+                item: state.results![index],
+                callback: () {
+                  query = "${state.results![index].name}";
+                  context.push("$pathInitial$detailPage", extra: {
+                    identifierTransport: state.results![index].identifier,
+                    imageUrlTransport: state.results![index].imageUrl
+                  });
+                  close(context, query);
+                },
+              );
+            },
+          );
+        }
+
+        return EmptyStateSimpleWidget(
+          icon: const Icon(Icons.error_outline_outlined),
+          text: Text(context.getStrings.search_page_empty_state,
+              textAlign: TextAlign.center,
+              style: context.getThemeData.textTheme.headlineMedium?.copyWith(
+                  color: context.getThemeData.colorScheme.secondary)),
         );
       },
     );
+  }
+
+  _searchFood(BuildContext context, String query) async {
+    context.read<SearchBloc>().add(SearchEvent.search(query));
   }
 }
