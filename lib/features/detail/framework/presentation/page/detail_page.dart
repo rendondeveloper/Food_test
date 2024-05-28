@@ -71,13 +71,29 @@ class _DetailPageState extends State<DetailPage> {
               builder: (context, state) {
                 return FlexibleSpaceBar(
                   centerTitle: true,
-                  title: Text(
-                    state.name ?? "",
-                    style: context.getThemeData.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: _isCollapsed
-                            ? context.getThemeData.colorScheme.tertiary
-                            : context.getThemeData.colorScheme.secondary),
+                  title: Visibility(
+                    visible: state.state == DetailProcess.success(),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white
+                              .withOpacity(_isCollapsed ? 0.0 : 0.6),
+                          borderRadius: BorderRadius.circular(radiusBig)),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.all(_isCollapsed ? 0 : simpleSeparation),
+                        child: Text(
+                          state.name ?? "",
+                          style: context.getThemeData.textTheme.titleMedium
+                              ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: _isCollapsed
+                                      ? context
+                                          .getThemeData.colorScheme.tertiary
+                                      : context
+                                          .getThemeData.colorScheme.secondary),
+                        ),
+                      ),
+                    ),
                   ),
                   background: ImageNetWotkWidget(state.imageUrl ?? ""),
                 );
