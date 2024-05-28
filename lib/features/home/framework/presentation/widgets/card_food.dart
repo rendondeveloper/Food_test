@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_test/core/const/configuration_size_app.dart';
+import 'package:food_test/core/widgets_general/favorite_widget.dart/favorite_widget.dart';
 import 'package:food_test/features/home/domain/state/food_item.dart';
 import 'package:util_commons/utils/commons/dimens_app.dart';
 import 'package:util_commons/utils/extensions/extension_context.dart';
@@ -9,8 +10,13 @@ import 'package:widgets_ui/widget/image/image_network_widget.dart';
 class CardFood extends StatelessWidget {
   final FoodItem item;
   final VoidCallback callback;
+  final VoidCallback onTapFavorite;
 
-  const CardFood({required this.item, required this.callback, Key? key})
+  const CardFood(
+      {required this.item,
+      required this.callback,
+      required this.onTapFavorite,
+      Key? key})
       : super(key: key);
 
   @override
@@ -55,11 +61,18 @@ class CardFood extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: simpleSeparation, vertical: simpleSeparation),
-            child: Text(
-              item.name!,
-              textAlign: TextAlign.start,
-              style: context.getThemeData.textTheme.labelLarge
-                  ?.copyWith(color: context.getThemeData.colorScheme.secondary),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  item.name!,
+                  textAlign: TextAlign.start,
+                  style: context.getThemeData.textTheme.labelLarge?.copyWith(
+                      color: context.getThemeData.colorScheme.secondary),
+                ),
+                FavoriteWidget(
+                    onTap: onTapFavorite, isFavorite: item.isFavorite)
+              ],
             ),
           )
         ],

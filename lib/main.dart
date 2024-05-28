@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:food_test/core/const/theme_app.dart';
 import 'package:food_test/core/di/general_injection.dart';
+import 'package:food_test/core/feature/favoritie/framework/di/favorite_injection.dart';
 import 'package:food_test/features/detail/framework/di/detail_injection.dart';
 import 'package:food_test/features/detail/framework/presentation/bloc/detail_bloc.dart';
 import 'package:food_test/features/home/framework/di/home_injection.dart';
@@ -18,6 +19,7 @@ void main() {
   HomeInjection().register();
   DetailInjection().register();
   SearchInjection().register();
+  FavoriteInjection().register();
 
   runApp(MultiBlocProvider(
     providers: [
@@ -31,7 +33,7 @@ void main() {
       BlocProvider<SearchBloc>(
         create: (BuildContext context) =>
             Injector.appInstance.get<SearchBloc>(),
-      ),
+      ),   
     ],
     child: SafeArea(
       child: MaterialApp.router(

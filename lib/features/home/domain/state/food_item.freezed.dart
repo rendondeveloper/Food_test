@@ -20,6 +20,7 @@ mixin _$FoodItem {
   String? get name => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   String? get countryFlagUrl => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FoodItemCopyWith<FoodItem> get copyWith =>
@@ -35,7 +36,8 @@ abstract class $FoodItemCopyWith<$Res> {
       {String? identifier,
       String? name,
       String? imageUrl,
-      String? countryFlagUrl});
+      String? countryFlagUrl,
+      bool isFavorite});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$FoodItemCopyWithImpl<$Res, $Val extends FoodItem>
     Object? name = freezed,
     Object? imageUrl = freezed,
     Object? countryFlagUrl = freezed,
+    Object? isFavorite = null,
   }) {
     return _then(_value.copyWith(
       identifier: freezed == identifier
@@ -73,6 +76,10 @@ class _$FoodItemCopyWithImpl<$Res, $Val extends FoodItem>
           ? _value.countryFlagUrl
           : countryFlagUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -89,7 +96,8 @@ abstract class _$$FoodItemImplCopyWith<$Res>
       {String? identifier,
       String? name,
       String? imageUrl,
-      String? countryFlagUrl});
+      String? countryFlagUrl,
+      bool isFavorite});
 }
 
 /// @nodoc
@@ -107,6 +115,7 @@ class __$$FoodItemImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? imageUrl = freezed,
     Object? countryFlagUrl = freezed,
+    Object? isFavorite = null,
   }) {
     return _then(_$FoodItemImpl(
       identifier: freezed == identifier
@@ -125,6 +134,10 @@ class __$$FoodItemImplCopyWithImpl<$Res>
           ? _value.countryFlagUrl
           : countryFlagUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -136,7 +149,8 @@ class _$FoodItemImpl extends _FoodItem {
       {this.identifier = null,
       this.name = null,
       this.imageUrl = null,
-      this.countryFlagUrl = null})
+      this.countryFlagUrl = null,
+      this.isFavorite = false})
       : super._();
 
   @override
@@ -151,10 +165,13 @@ class _$FoodItemImpl extends _FoodItem {
   @override
   @JsonKey()
   final String? countryFlagUrl;
+  @override
+  @JsonKey()
+  final bool isFavorite;
 
   @override
   String toString() {
-    return 'FoodItem(identifier: $identifier, name: $name, imageUrl: $imageUrl, countryFlagUrl: $countryFlagUrl)';
+    return 'FoodItem(identifier: $identifier, name: $name, imageUrl: $imageUrl, countryFlagUrl: $countryFlagUrl, isFavorite: $isFavorite)';
   }
 
   @override
@@ -168,12 +185,14 @@ class _$FoodItemImpl extends _FoodItem {
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             (identical(other.countryFlagUrl, countryFlagUrl) ||
-                other.countryFlagUrl == countryFlagUrl));
+                other.countryFlagUrl == countryFlagUrl) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, identifier, name, imageUrl, countryFlagUrl);
+  int get hashCode => Object.hash(
+      runtimeType, identifier, name, imageUrl, countryFlagUrl, isFavorite);
 
   @JsonKey(ignore: true)
   @override
@@ -187,7 +206,8 @@ abstract class _FoodItem extends FoodItem {
       {final String? identifier,
       final String? name,
       final String? imageUrl,
-      final String? countryFlagUrl}) = _$FoodItemImpl;
+      final String? countryFlagUrl,
+      final bool isFavorite}) = _$FoodItemImpl;
   const _FoodItem._() : super._();
 
   @override
@@ -198,6 +218,8 @@ abstract class _FoodItem extends FoodItem {
   String? get imageUrl;
   @override
   String? get countryFlagUrl;
+  @override
+  bool get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$$FoodItemImplCopyWith<_$FoodItemImpl> get copyWith =>

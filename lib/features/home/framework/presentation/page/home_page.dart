@@ -125,6 +125,11 @@ class _HomePageState extends State<HomePage> {
                                 imageUrlTransport: state.items![index].imageUrl
                               });
                             },
+                            onTapFavorite: () {
+                              context.read<HomeBloc>().add(
+                                  HomeEvent.changeFavorite(
+                                      state.items![index], index));
+                            },
                             item: state.items![index],
                           );
                         },
