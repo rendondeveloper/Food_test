@@ -1,16 +1,31 @@
-# food_test
 
-Project using themealdb.com api to show distinct dishes with food delicious
+# Project Title
 
-## Getting Started
+I did this project to show some dishes very delicious to  getting from  [themealdb API](https://www.themealdb.com/) and show mi skills to create apps with flutter.
 
-This project is a starting point for a Flutter application.
+## Overview
 
-A few resources to get you started if this is your first Flutter project:
+This project was created with Clean architecture + the screamming architecture + bloc + repository + data source + injection of dependencies.
+That concept was applied in project to build a great app with the option to escalate with more functionalities and testing.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Note 
+I thought use interfaces to make data sources, repositories and use cases, but to optimize my time I used directly implementations.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Installation
+
+```bash
+execute are next codes
+    flutter pub get
+    flutter gen-l10n
+    dart run build_runner build
+```
+    
+## Demo
+
+Insert gif or link to demo
+
