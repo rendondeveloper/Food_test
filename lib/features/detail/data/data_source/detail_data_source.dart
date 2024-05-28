@@ -13,8 +13,8 @@ class DetailDataSource {
     MealDetail? result;
     ErrorGeneral? error;
 
-    final response =
-        await _apiConnect.executeGet(params: {"i": identiier}, path: latest);
+    final response = await _apiConnect
+        .executeGet(params: {detailParam: identiier}, path: detailItem);
     if (response.isSuccess) {
       final data = FoodDetail.fromJson(response.mapValueJson!);
       result = data.meals?.firstOrNull;
