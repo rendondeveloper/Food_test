@@ -21,7 +21,9 @@ class HomeRepository {
       final favorities = await _favoriteLocalDataSource.getFavorities();
 
       for (var item in result.success!.meals!) {
-        if (favorities.where((fav) => fav.identifier == item.idMeal).isNotEmpty) {
+        if (favorities
+            .where((fav) => fav.identifier == item.idMeal)
+            .isNotEmpty) {
           item.isFavorite = true;
         }
       }

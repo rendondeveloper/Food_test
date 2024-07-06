@@ -42,7 +42,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         return;
       }
 
-      final data = response.success?.meals?.map((e) => _mapper.map(e)).toList();
+      final data = response.success?.meals
+          ?.take(7)
+          .toList()
+          .map((e) => _mapper.map(e))
+          .toList();
       emit(state.copyWith(
         items: data ?? [],
         state: HomeProcess.success(),
@@ -70,7 +74,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         return;
       }
 
-      final data = response.success?.meals?.map((e) => _mapper.map(e)).toList();
+      final data = response.success?.meals
+          ?.take(7)
+          .toList()
+          .map((e) => _mapper.map(e))
+          .toList();
       final allItems = List<FoodItem>.from(state.items ?? [])
         ..addAll(data ?? []);
       emit(state.copyWith(

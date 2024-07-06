@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_test/core/const/configuration_navigation_paths.dart';
@@ -111,6 +112,32 @@ class _HomePageState extends State<HomePage> {
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
+                    Expanded(
+                        flex: 1,
+                        child: CarouselSlider(
+                          options: CarouselOptions(height: 400.0),
+                          items: state.items?.map((index2) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return CardFood(
+                                  callback: () {
+                                    context.push("$pathInitial$detailPage",
+                                        extra: {
+                                          identifierTransport:
+                                              index2.identifier,
+                                          imageUrlTransport: index2.imageUrl
+                                        });
+                                  },
+                                  onTapFavorite: () {
+                                    context.read<HomeBloc>().add(
+                                        HomeEvent.changeFavorite(index2, 0));
+                                  },
+                                  item: index2,
+                                );
+                              },
+                            );
+                          }).toList(),
+                        )),
                     Expanded(
                       flex: 1,
                       child: ListView.builder(
